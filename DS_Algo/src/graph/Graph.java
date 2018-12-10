@@ -42,7 +42,7 @@ public class Graph {
 	
 	/*
 	 * add edge between source and destination vertex (Undirected graph)
-	 * add weight
+	 * add weight to each edge
 	 */
 	void addEdgeUndirectedWeight(int s, int d, int weight) {
 		adjList[s].add(d);
