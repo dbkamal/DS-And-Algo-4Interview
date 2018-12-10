@@ -7,9 +7,16 @@ public class Startup {
 		UnionFindAlgo g = new UnionFindAlgo(3);
 		g.graph.addEdgeUndirectedWeight(0, 1, 0);
 		g.graph.addEdgeUndirectedWeight(1, 2, 0);
-		g.graph.addEdgeUndirectedWeight(0, 2, 0);
-		System.out.println(g.isCycle());
-		System.out.println(java.util.Arrays.toString(g.parent));
+		g.graph.addEdgeUndirectedWeight(2, 0, 0);
+//		g.graph.addEdgeUndirectedWeight(3, 4, 0);
+//		g.graph.addEdgeUndirectedWeight(2, 4, 0);
+		
+		if (g.isCycle())
+			System.out.println("cycle detected");
+		else
+			System.out.println("no cycle detected");
+		
+		System.out.println("Set excluding cycle: " + java.util.Arrays.toString(g.parent));
 		
 		/*
 		GraphDemo graphDemo = new GraphDemo(4);

@@ -12,7 +12,6 @@ public class UnionFindAlgo {
 	
 	Graph graph;
 	int[] parent;
-	int v;
 	
 	UnionFindAlgo(int v) {
 		graph = new Graph(v);
@@ -52,12 +51,12 @@ public class UnionFindAlgo {
 		System.out.println(sParent + "," + dParent);
 		
 		if (parent[sParent] <= parent[dParent]) {
-			parent[s] += -1;
-			parent[d] = sParent;
+			parent[sParent] += -1;
+			parent[dParent] = s;
 		}
 		else {
-			parent[d] += -1;
-			parent[s] += dParent;
+			parent[dParent] += -1;
+			parent[sParent] = d;
 		}
 	}
 	
@@ -70,6 +69,7 @@ public class UnionFindAlgo {
 		
 		while (it.hasNext()) {
 			String p = it.next();
+			System.out.println("key " + p);
 			int comma = p.indexOf(",");
 			int source = Integer.parseInt(p.substring(0, comma));
 			int dest = Integer.parseInt(p.substring(comma+1, p.length()));
