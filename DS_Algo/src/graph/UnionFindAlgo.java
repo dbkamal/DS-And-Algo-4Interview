@@ -1,5 +1,7 @@
 package graph;
 
+import java.util.Iterator;
+
 /*
  * Union-Find algorithm is useful detecting any cycle in the
  * undirected graph.
@@ -26,20 +28,58 @@ public class UnionFindAlgo {
 	 * Example: 0 -> 1, then {0, 1} forms the set and 1 is the parent of element 0
 	 */
 	int find(int source) {
-		return 0;
+		
+		if (parent[source] < 0)
+			return source;
+		else {
+			int val = parent[source];
+			while (val >= 0) {
+				source = val;
+				val = parent[val];
+			}
+			return source;
+		}
 	}
 	
 	/*
 	 * union operation between two sets if no cycle detected
 	 */
-	void union() {
-		//TO-DO
+	void union(int s, int d) {
+		int sParent = find(s);
+		int dParent = find(d);
+		
+		System.out.println(java.util.Arrays.toString(parent));
+		System.out.println(sParent + "," + dParent);
+		
+		if (parent[sParent] <= parent[dParent]) {
+			parent[s] += -1;
+			parent[d] = sParent;
+		}
+		else {
+			parent[d] += -1;
+			parent[s] += dParent;
+		}
 	}
 	
 	/*
 	 * Main routine to check if cycle is found or not
 	 */
 	boolean isCycle() {
+		
+		Iterator<String> it = graph.allKeys().iterator();
+		
+		while (it.hasNext()) {
+			String p = it.next();
+			int comma = p.indexOf(",");
+			int source = Integer.parseInt(p.substring(0, comma));
+			int dest = Integer.parseInt(p.substring(comma+1, p.length()));
+			
+			if (find(source) == find(dest))
+				return true;
+			
+			union(source, dest);
+		}
+		
 		return false;
 	}
 }

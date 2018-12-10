@@ -4,6 +4,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 import java.util.LinkedList;
+import java.util.Set;
 
 /*
  * Main Graph class. Each Graph has its own adjustment list and vertex (int) number
@@ -49,7 +50,7 @@ public class Graph {
 		adjList[d].add(s);
 		
 		//Add weight between two edges
-		String key = String.valueOf(s) + ", " + String.valueOf(d);
+		String key = String.valueOf(s) + "," + String.valueOf(d);
 		edgeList.put(key, weight);
 	}
 	
@@ -57,8 +58,8 @@ public class Graph {
 	 * Return the edge weight
 	 */
 	int getWeight(int s, int d) {
-		String key1 = String.valueOf(s) + ", " + String.valueOf(d);
-		String key2 = String.valueOf(d) + ", " + String.valueOf(s);
+		String key1 = String.valueOf(s) + "," + String.valueOf(d);
+		String key2 = String.valueOf(d) + "," + String.valueOf(s);
 		
 		if (edgeList.containsKey(key1)) {
 			return edgeList.get(key1);
@@ -76,6 +77,13 @@ public class Graph {
 	 */
 	Collection<Integer> allWeight() {
 		return edgeList.values();
+	}
+	
+	/*
+	 * Returns all keys i.e source and destination of the edge
+	 */
+	Set<String> allKeys() {
+		return edgeList.keySet();
 	}
 	
 	/*

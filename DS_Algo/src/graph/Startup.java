@@ -4,6 +4,13 @@ public class Startup {
 
 	public static void main(String[] args) {
 		
+		UnionFindAlgo g = new UnionFindAlgo(3);
+		g.graph.addEdgeUndirectedWeight(0, 1, 0);
+		g.graph.addEdgeUndirectedWeight(1, 2, 0);
+		g.graph.addEdgeUndirectedWeight(0, 2, 0);
+		System.out.println(g.isCycle());
+		System.out.println(java.util.Arrays.toString(g.parent));
+		
 		/*
 		GraphDemo graphDemo = new GraphDemo(4);
 		graphDemo.graph.addEdgeDirected(0, 1);
@@ -29,6 +36,7 @@ public class Startup {
 		scc.mainRoutine();
 		*/
 		
+		/*
 		TopologicalSort g = new TopologicalSort(6);
 		g.graph.addEdgeDirected(5, 0);
 		g.graph.addEdgeDirected(5, 2);
@@ -37,6 +45,7 @@ public class Startup {
 		g.graph.addEdgeDirected(4, 0);
 		g.graph.addEdgeDirected(4, 1);
 		g.sort(5);
+		*/
 		
 	}
 

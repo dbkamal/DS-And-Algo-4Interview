@@ -6,6 +6,7 @@ import java.util.*;
  * This class separates vertex and edges and treated them as class
  */
 public class GraphAdv<T> {
+	@SuppressWarnings("unused")
 	private List<Edge<T>> allEdges;
 }
 
