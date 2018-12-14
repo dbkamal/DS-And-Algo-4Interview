@@ -75,7 +75,6 @@ public class KruskalMST {
 		}
 		
 		for (String p : forest) {
-			System.out.println("forest val");
 			System.out.print(p + " ");
 		}
 	}
