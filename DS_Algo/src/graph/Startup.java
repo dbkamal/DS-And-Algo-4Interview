@@ -4,10 +4,33 @@ public class Startup {
 
 	public static void main(String[] args) {
 		
-		UnionFindAlgo g = new UnionFindAlgo(3);
+		UnionFindAlgo g = new UnionFindAlgo(9);
+		g.graph.addEdgeUndirectedWeight(0, 1, 4);
+		g.graph.addEdgeUndirectedWeight(1, 2, 8);
+		g.graph.addEdgeUndirectedWeight(2, 3, 7);
+		g.graph.addEdgeUndirectedWeight(0, 7, 8);
+		g.graph.addEdgeUndirectedWeight(1, 7, 11);
+		g.graph.addEdgeUndirectedWeight(7, 6, 1);
+		g.graph.addEdgeUndirectedWeight(6, 5, 2);
+		g.graph.addEdgeUndirectedWeight(3, 5, 14);
+		g.graph.addEdgeUndirectedWeight(2, 8, 2);
+		g.graph.addEdgeUndirectedWeight(8, 6, 6);
+		g.graph.addEdgeUndirectedWeight(7, 8, 7);
+		g.graph.addEdgeUndirectedWeight(2, 5, 4);
+		g.graph.addEdgeUndirectedWeight(0, 1, 4);
+		g.graph.addEdgeUndirectedWeight(3, 4, 9);
+		g.graph.addEdgeUndirectedWeight(4, 5, 10);
+
+		KruskalMST mst = new KruskalMST(g);
+		mst.mstForest();
+		
+		/*
+		UnionFindAlgo g = new UnionFindAlgo(4);
 		g.graph.addEdgeUndirectedWeight(0, 1, 0);
 		g.graph.addEdgeUndirectedWeight(1, 2, 0);
-		g.graph.addEdgeUndirectedWeight(2, 0, 0);
+//		g.graph.addEdgeUndirectedWeight(2, 0, 0);
+		g.graph.addEdgeUndirectedWeight(2, 3, 0);
+		g.graph.addEdgeUndirectedWeight(0, 3, 0);
 //		g.graph.addEdgeUndirectedWeight(3, 4, 0);
 //		g.graph.addEdgeUndirectedWeight(2, 4, 0);
 		
@@ -17,6 +40,7 @@ public class Startup {
 			System.out.println("no cycle detected");
 		
 		System.out.println("Set excluding cycle: " + java.util.Arrays.toString(g.parent));
+		*/
 		
 		/*
 		GraphDemo graphDemo = new GraphDemo(4);

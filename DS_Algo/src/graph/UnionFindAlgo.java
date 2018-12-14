@@ -41,13 +41,33 @@ public class UnionFindAlgo {
 	}
 	
 	/*
+	 * union by rank operation between two sets if no cycle detected
+	 * add the subtree to the root
+	 */
+	void unionByRank(int s, int d) {
+		int sParent = find(s);
+		int dParent = find(d);
+		
+		System.out.println(sParent + "," + dParent);
+		
+		if (parent[sParent] <= parent[dParent]) {
+			parent[sParent] += -1;
+			parent[dParent] = sParent;
+		}
+		else {
+			parent[dParent] += -1;
+			parent[sParent] = dParent;
+		}
+		System.out.println(java.util.Arrays.toString(parent));
+	}
+	
+	/*
 	 * union operation between two sets if no cycle detected
 	 */
 	void union(int s, int d) {
 		int sParent = find(s);
 		int dParent = find(d);
 		
-		System.out.println(java.util.Arrays.toString(parent));
 		System.out.println(sParent + "," + dParent);
 		
 		if (parent[sParent] <= parent[dParent]) {
@@ -58,6 +78,7 @@ public class UnionFindAlgo {
 			parent[dParent] += -1;
 			parent[sParent] = d;
 		}
+		System.out.println(java.util.Arrays.toString(parent));
 	}
 	
 	/*
@@ -77,7 +98,8 @@ public class UnionFindAlgo {
 			if (find(source) == find(dest))
 				return true;
 			
-			union(source, dest);
+//			union(source, dest);
+			unionByRank(source, dest);
 		}
 		
 		return false;
