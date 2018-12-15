@@ -4,10 +4,11 @@ import java.util.*;
 
 /*
  * This class separates vertex and edges and treated them as class
+ * Ref: https://github.com/mission-peace/interview/blob/master/src/com/interview/graph/Graph.java
  */
 public class GraphAdv<E> {
-	private List<Edge<E>> allEdges;
-	private Map<Long, Vertex<E>> allVertex;
+	List<Edge<E>> allEdges;
+	Map<Long, Vertex<E>> allVertex;
 	boolean isDirected = false;
 
 	GraphAdv(boolean isDirected) {
@@ -47,6 +48,14 @@ public class GraphAdv<E> {
 			v1.setData(data);
 		}
 	}
+	
+	List<Edge<E>> getAllEdges() {
+		return allEdges;
+	}
+	
+	Collection<Vertex<E>> getAllVertex() {
+		return allVertex.values();
+	}
 }
 
 class Vertex<E> {
@@ -71,6 +80,24 @@ class Vertex<E> {
 		edges.add(e);
 		adjVertex.add(v);
 	}
+	
+	List<Edge<E>> getEdges() {
+		return edges;
+	}
+	
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        Vertex other = (Vertex) obj;
+        if (id != other.id)
+            return false;
+        return true;
+    }
 }
 
 class Edge<T> {
