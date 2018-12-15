@@ -6,65 +6,89 @@ import java.util.*;
  * This class separates vertex and edges and treated them as class
  */
 public class GraphAdv<E> {
-	LinkedList<Vertex<E>>[] adjList;
-	@SuppressWarnings("rawtypes")
-	LinkedList<Edge> edgeList;
-	int vertex;
+	private List<Edge<E>> allEdges;
+	private Map<Long, Vertex<E>> allVertex;
+	boolean isDirected = false;
 
-	@SuppressWarnings({ "unchecked", "rawtypes" })
-	GraphAdv(int v) {
-		vertex = v;
-		edgeList = new LinkedList<Edge> ();
-		adjList = new LinkedList[v];
-
-		for (int i = 0; i < vertex; i++) {
-			adjList[i] = new LinkedList<Vertex<E>> ();
-		}
+	GraphAdv(boolean isDirected) {
+		this.isDirected = isDirected;
+		allEdges = new ArrayList<Edge<E>> ();
+		allVertex = new HashMap<Long, Vertex<E>> ();
 	}
 
-	@SuppressWarnings("unchecked")
-	void addEdgeUndirectedWeight(int v1, int v2, int weight) {
-		Vertex<Integer> v11 = new Vertex<Integer> (v1);
-		Vertex<Integer> v22 = new Vertex<Integer> (v2);
-		@SuppressWarnings("rawtypes")
-		Edge edge = new Edge(v11, v22, weight);
-		edgeList.add(edge);
-		adjList[v1].add((Vertex<E>) v22);
-		adjList[v2].add((Vertex<E>) v11);
+	void addEdge(long id1, long id2, int weight) {
+		Vertex<E> v1 = null;
+		if(allVertex.containsKey(id1)) {
+			v1 = allVertex.get(id1);
+		}
+		else {
+			v1 = new Vertex<E> (id1);
+		}
+		
+		Vertex<E> v2 = null;
+		if(allVertex.containsKey(id2)) {
+			v2 = allVertex.get(id2);
+		}
+		else {
+			v2 = new Vertex<E> (id2);
+		}
+		
+		Edge<E> edge = new Edge<E> (v1, v2, isDirected, weight);
+		allEdges.add(edge);
+		v1.addAdjVertex(edge, v2);
+		
+		if(!isDirected)
+			v2.addAdjVertex(edge, v1);
+	}
+	
+	void setDataVertex(long id, E data) {
+		if(allVertex.containsKey(id)) {
+			Vertex<E> v1 = allVertex.get(id);
+			v1.setData(data);
+		}
 	}
 }
 
 class Vertex<E> {
-	private int k;
-	private int val;
+	long id;
+	private E data;
+	private List<Edge<E>> edges = new ArrayList<> ();
+	private List<Vertex<E>> adjVertex = new ArrayList<> ();
 
-	Vertex (int val) {
-		this.val = val;
+	Vertex (long id) {
+		this.id = id;
 	}
 	
-	void setKey(int key) {
-		k = key;
+	void setData(E data) {
+		this.data = data;
 	}
 	
-	int getKey() {
-		return k;
+	E getData() {
+		return data;
+	}
+	
+	void addAdjVertex(Edge<E> e, Vertex<E> v) {
+		edges.add(e);
+		adjVertex.add(v);
 	}
 }
 
-class Edge<E> {
-	Vertex<E> v1;
-	Vertex<E> v2;
-	int weight;
+class Edge<T> {
+	@SuppressWarnings("unused")
+	private boolean isDirected = false;
+	private Vertex<T> v1;
+	private Vertex<T> v2;
+	private int weight;
 
-	Edge() {
-		v1 = null;
-		v2 = null;
-		weight = 0;
-	}
-
-	Edge(Vertex<E> v1, Vertex<E> v2, int weight) {
+	Edge(Vertex<T> v1, Vertex<T> v2) {
 		this.v1 = v1;
 		this.v2 = v2;
+	}
+
+	Edge(Vertex<T> v1, Vertex<T> v2, boolean isDirected, int weight) {
+		this.v1 = v1;
+		this.v2 = v2;
+		this.isDirected = isDirected;
 		this.weight = weight;
 	}
 
@@ -72,11 +96,11 @@ class Edge<E> {
 		return weight;
 	}
 
-	Vertex<E> getVertex1() {
+	Vertex<T> getVertex1() {
 		return v1;
 	}
 
-	Vertex<E> getVertex2() {
+	Vertex<T> getVertex2() {
 		return v2;
 	}
 }
