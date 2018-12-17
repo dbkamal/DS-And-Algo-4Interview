@@ -4,7 +4,30 @@ public class Startup {
 
 	public static void main(String[] args) {
 		
-		GraphAdv<Integer> g = new GraphAdv<Integer> (false);
+		GraphAdv<Integer> g = new GraphAdv<Integer> (true);
+		g.addEdge(1, 2, 4);
+		g.addEdge(1, 4, 5);
+		g.addEdge(2, 4, 5);
+		g.addEdge(3, 2, -10);
+		g.addEdge(4, 3, 3);
+		/*
+		 * test case with no negative weight edge cycle
+		g.addEdge(1, 2, 6);
+		g.addEdge(1, 4, 5);
+		g.addEdge(1, 3, 5);
+		g.addEdge(2, 5, -1);
+		g.addEdge(3, 2, -2);
+		g.addEdge(3, 5, 1);
+		g.addEdge(4, 3, -2);
+		g.addEdge(4, 6, -1);
+		g.addEdge(5, 7, 3);
+		g.addEdge(6, 7, 3);
+		*/
+		BellmanFordAlgo obj = new BellmanFordAlgo(g);
+		System.out.println(obj.shortestPath(1));
+		
+		
+		/*
 		g.addEdge(0, 1, 4);
 		g.addEdge(1, 2, 8);
 		g.addEdge(2, 3, 7);
@@ -22,6 +45,8 @@ public class Startup {
 		
 		PrimAlgo obj = new PrimAlgo(g);
 		obj.prim(0);
+		*/
+		
 		
 		/*
 		UnionFindAlgo g = new UnionFindAlgo(9);
