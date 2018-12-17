@@ -24,6 +24,7 @@ public class GraphAdv<E> {
 		}
 		else {
 			v1 = new Vertex<E> (id1);
+			allVertex.put(id1, v1);
 		}
 		
 		Vertex<E> v2 = null;
@@ -32,6 +33,7 @@ public class GraphAdv<E> {
 		}
 		else {
 			v2 = new Vertex<E> (id2);
+			allVertex.put(id2, v2);
 		}
 		
 		Edge<E> edge = new Edge<E> (v1, v2, isDirected, weight);
@@ -93,7 +95,8 @@ class Vertex<E> {
             return false;
         if (getClass() != obj.getClass())
             return false;
-        Vertex other = (Vertex) obj;
+        @SuppressWarnings("rawtypes")
+		Vertex other = (Vertex) obj;
         if (id != other.id)
             return false;
         return true;

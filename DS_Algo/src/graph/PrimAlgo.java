@@ -10,14 +10,17 @@ public class PrimAlgo {
 		this.graph = graph;
 	}
 	
-	@SuppressWarnings("unlikely-arg-type")
+	/*
+	 * Main routine.
+	 * Arg: pass the starting root of the graph
+	 */
 	void prim(int r) {
 		
-		int cost = 0;
-		ArrayList<Integer> visited = new ArrayList<Integer> ();
 		Map<Vertex<Integer>,Edge<Integer>> vertexToEdge = new HashMap<>();
 		PriorityQueue<Vertex<Integer>> minQ = new PriorityQueue<Vertex<Integer>> (new MyComparator<Integer> ());
-		//insert all vertices with infinite value
+		ArrayList<Edge<Integer>> result = new ArrayList<Edge<Integer>> ();
+		
+		//insert all vertices and set data infinite
 		for(Vertex<Integer> v : graph.getAllVertex()) {
 			v.setData(Integer.MAX_VALUE);
 			
@@ -28,20 +31,33 @@ public class PrimAlgo {
 		}
 		
 		while (minQ.size() > 0) {
+			System.out.println("** minQ now **");
+			for (Vertex<Integer> vv : minQ) {
+				System.out.println(vv.id + " " + vv.getData());
+			}
+			
 			Vertex<Integer> v = minQ.poll();
+			
+			if (vertexToEdge.containsKey(v)) {
+				result.add(vertexToEdge.get(v));
+			}
 			
 			for (Edge<Integer> e : v.getEdges()) {
 				Vertex<Integer> adjacent = getVertexForEdge(v, e);
-				if (!visited.contains(adjacent.id) && adjacent.getData() > e.getWeight()) {
+				
+				if (minQ.contains(adjacent) && adjacent.getData() > e.getWeight()) {
 					vertexToEdge.put(adjacent, e);
-					visited.add((int) adjacent.id);
+					minQ.remove(adjacent);
 					adjacent.setData(e.getWeight());
-					cost += adjacent.getData();
+					minQ.add(adjacent);
 				}
 			}
 		}
 		
-		System.out.println(cost);
+		for (Edge<Integer> e : result) {
+			System.out.println(e.getVertex1().id + " - " + e.getVertex2().id);
+		}
+		
 	}
 	
 	Vertex<Integer> getVertexForEdge (Vertex<Integer> v, Edge<Integer> e) {
@@ -55,6 +71,13 @@ class MyComparator<E> implements Comparator<Vertex<E>> {
 	public int compare(Vertex<E> o1, Vertex<E> o2) {
 		int val1 = (Integer) o1.getData();
 		int val2 = (Integer) o2.getData();
-		return val1 - val2;
+		
+		if (val1 < val2)
+			return -1;
+		
+		if (val1 > val2)
+			return 1;
+		
+		return 0;
 	}
 }

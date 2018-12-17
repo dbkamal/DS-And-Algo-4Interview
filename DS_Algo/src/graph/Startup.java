@@ -17,9 +17,9 @@ public class Startup {
 		g.addEdge(8, 6, 6);
 		g.addEdge(7, 8, 7);
 		g.addEdge(2, 5, 4);
-		g.addEdge(0, 1, 4);
 		g.addEdge(3, 4, 9);
 		g.addEdge(4, 5, 10);
+		
 		PrimAlgo obj = new PrimAlgo(g);
 		obj.prim(0);
 		
