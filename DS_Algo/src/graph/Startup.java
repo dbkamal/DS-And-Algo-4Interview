@@ -4,6 +4,19 @@ public class Startup {
 
 	public static void main(String[] args) {
 		
+		GraphAdjMatrix g = new GraphAdjMatrix(4);
+		g.addDirectedEdge(0, 1, 3);
+		g.addDirectedEdge(0, 3, 7);
+		g.addDirectedEdge(1, 0, 8);
+		g.addDirectedEdge(1, 2, 2);
+		g.addDirectedEdge(2, 0, 5);
+		g.addDirectedEdge(2, 3, 1);
+		g.addDirectedEdge(3, 0, 2);
+		
+		FloydWarshallAlgo obj = new FloydWarshallAlgo(g);
+		obj.computeAllpairShortestPath();
+		
+		/*
 		GraphAdv<Integer> g = new GraphAdv<Integer> (true);
 		g.addEdge(0, 1, 10);
 		g.addEdge(0, 3, 5);
@@ -18,7 +31,7 @@ public class Startup {
 		
 		DijkstraAlgo obj = new DijkstraAlgo(g);
 		obj.calculateShortestPath(0);
-		
+		*/
 		
 		/*
 		GraphAdv<Integer> g = new GraphAdv<Integer> (true);
