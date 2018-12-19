@@ -4,6 +4,18 @@ public class Startup {
 
 	public static void main(String[] args) {
 		
+		GraphAdjMatrix2 g = new GraphAdjMatrix2(4);
+		int weight = 0;
+		g.addDirectedEdge(1, 2, weight);
+		g.addDirectedEdge(1, 3, weight);
+		g.addDirectedEdge(2, 1, weight);
+		g.addDirectedEdge(3, 2, weight);
+		g.addDirectedEdge(3, 0, weight);
+		
+		TransitiveClosure obj = new TransitiveClosure(g);
+		obj.transClosure();
+		
+		/*
 		GraphAdjMatrix g = new GraphAdjMatrix(4);
 		g.addDirectedEdge(0, 1, 3);
 		g.addDirectedEdge(0, 3, 7);
@@ -15,7 +27,7 @@ public class Startup {
 		
 		FloydWarshallAlgo obj = new FloydWarshallAlgo(g);
 		obj.computeAllpairShortestPath();
-		
+		*/
 		/*
 		GraphAdv<Integer> g = new GraphAdv<Integer> (true);
 		g.addEdge(0, 1, 10);
