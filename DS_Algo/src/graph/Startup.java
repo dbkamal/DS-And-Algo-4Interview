@@ -4,6 +4,17 @@ public class Startup {
 
 	public static void main(String[] args) {
 		
+		GraphAdv<Integer> g = new GraphAdv<Integer> (true);
+		g.addEdge(0, 1, -5);
+		g.addEdge(0, 2, 2);
+		g.addEdge(0, 3, 3);
+		g.addEdge(1, 2, 4);
+		g.addEdge(2, 3, 1);
+		
+		JohnsonAlgoAllPairs obj = new JohnsonAlgoAllPairs(g);
+		obj.calculateShortestPath(4);
+		
+		/*
 		GraphAdjMatrix2 g = new GraphAdjMatrix2(4);
 		int weight = 0;
 		g.addDirectedEdge(1, 2, weight);
@@ -14,6 +25,7 @@ public class Startup {
 		
 		TransitiveClosure obj = new TransitiveClosure(g);
 		obj.transClosure();
+		*/
 		
 		/*
 		GraphAdjMatrix g = new GraphAdjMatrix(4);
