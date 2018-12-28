@@ -19,8 +19,14 @@ public class BellmanFordAlgo {
 		for (int i = 1; i < graph.getAllVertex().size()-1; i++) {
 
 			for (Edge<Integer> e : graph.getAllEdges()) {
-				if (e.getVertex2().getData() > e.getVertex1().getData() + e.getWeight())
+				// Avoid integer cross range
+				if (e.getVertex2().getData() == Integer.MAX_VALUE && e.getVertex1().getData() == Integer.MAX_VALUE)
+					continue;
+				
+				if (e.getVertex2().getData() > e.getVertex1().getData() + e.getWeight()) {
+					System.out.println(e.getVertex1().getData() + " : " + e.getWeight());
 					e.getVertex2().setData(e.getVertex1().getData() + e.getWeight()); 
+				}
 			}
 		
 		}
@@ -33,7 +39,7 @@ public class BellmanFordAlgo {
 
 		//print the final shortest path from the source
 		for (Vertex<Integer> v : graph.getAllVertex())
-			System.out.println(v.id + " -> " + v.getData());
+			System.out.println(v.id + " --> " + v.getData());
 
 		return true;
 	}
