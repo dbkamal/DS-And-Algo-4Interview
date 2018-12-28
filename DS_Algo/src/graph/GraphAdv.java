@@ -58,6 +58,22 @@ public class GraphAdv<E> {
 	Collection<Vertex<E>> getAllVertex() {
 		return allVertex.values();
 	}
+	
+	/*
+	 * Remove Vertex and Edge procedure
+	 */
+	void removeVertexAndEdges(Vertex<E> vertex) {
+		if(allVertex.containsKey(vertex.id)) {
+			List<Edge<E>> removeEdge = vertex.getEdges();
+			vertex.getEdges().clear();
+			allEdges.removeAll(removeEdge);
+		}
+		
+		//Remove vertex
+		if(allVertex.containsKey(vertex.id)) {
+			allVertex.remove(vertex.id);
+		}
+	}
 }
 
 class Vertex<E> {
@@ -125,6 +141,10 @@ class Edge<T> {
 	int getWeight() {
 		return weight;
 	}
+	
+	void setWeight(int w) {
+		this.weight = w;
+	}
 
 	Vertex<T> getVertex1() {
 		return v1;
@@ -133,4 +153,27 @@ class Edge<T> {
 	Vertex<T> getVertex2() {
 		return v2;
 	}
+	
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj)
+            return true;
+        if (obj == null)
+            return false;
+        if (getClass() != obj.getClass())
+            return false;
+        @SuppressWarnings("unchecked")
+		Edge<T> other = (Edge<T>) obj;
+        if (v1 == null) {
+            if (other.v1 != null)
+                return false;
+        } else if (!v1.equals(other.v1))
+            return false;
+        if (v2 == null) {
+            if (other.v2 != null)
+                return false;
+        } else if (!v2.equals(other.v2))
+            return false;
+        return true;
+    }
 }
