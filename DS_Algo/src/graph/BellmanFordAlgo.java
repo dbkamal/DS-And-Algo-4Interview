@@ -20,11 +20,11 @@ public class BellmanFordAlgo {
 
 			for (Edge<Integer> e : graph.getAllEdges()) {
 				// Avoid integer cross range
-				if (e.getVertex2().getData() == Integer.MAX_VALUE && e.getVertex1().getData() == Integer.MAX_VALUE)
+				if (e.getVertex2().getData() == Integer.MAX_VALUE && e.getVertex1().getData() == Integer.MAX_VALUE
+						|| e.getVertex1().getData() == Integer.MAX_VALUE)
 					continue;
 				
 				if (e.getVertex2().getData() > e.getVertex1().getData() + e.getWeight()) {
-					System.out.println(e.getVertex1().getData() + " : " + e.getWeight());
 					e.getVertex2().setData(e.getVertex1().getData() + e.getWeight()); 
 				}
 			}

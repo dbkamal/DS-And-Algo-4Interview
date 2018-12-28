@@ -25,6 +25,12 @@ public class DijkstraAlgo {
 			Vertex<Integer> v = minQ.poll();
 			for (Edge<Integer> e : v.getEdges()) {
 				Vertex<Integer> adjacentVertex = findAdjacentVertex(v, e);
+				
+				//// Avoid integer cross range
+				if((adjacentVertex.getData() == Integer.MAX_VALUE && v.getData() == Integer.MAX_VALUE) 
+						|| v.getData() == Integer.MAX_VALUE)
+					continue;
+				
 				if (adjacentVertex.getData() > v.getData() + e.getWeight()) {
 					minQ.remove(adjacentVertex);
 					adjacentVertex.setData(v.getData() + e.getWeight());
