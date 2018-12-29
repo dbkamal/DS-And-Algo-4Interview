@@ -5,6 +5,20 @@ public class Startup {
 	public static void main(String[] args) {
 		
 		GraphAdv<Integer> g = new GraphAdv<Integer> (true);
+		g.addEdge(0, 1, 0);
+		g.addEdge(0, 4, 0);
+		g.addEdge(0, 2, 0);
+		g.addEdge(1, 4, 0);
+		g.addEdge(1, 3, 0);
+		g.addEdge(2, 4, 0);
+		g.addEdge(3, 2, 0);
+		
+		CountPathTwoVertex obj = new CountPathTwoVertex(g);
+		int count = obj.countPathTwoVertex(0, 4);
+		System.out.print(count);
+		
+		/*
+		GraphAdv<Integer> g = new GraphAdv<Integer> (true);
 		g.addEdge(0, 1, -5);
 		g.addEdge(0, 2, 2);
 		g.addEdge(0, 3, 3);
@@ -13,6 +27,7 @@ public class Startup {
 		
 		JohnsonAlgoAllPairs obj = new JohnsonAlgoAllPairs(g);
 		obj.calculateShortestPath(4);
+		*/
 		
 		/*
 		GraphAdjMatrix2 g = new GraphAdjMatrix2(4);
