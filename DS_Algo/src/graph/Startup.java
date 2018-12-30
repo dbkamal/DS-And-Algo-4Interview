@@ -4,6 +4,10 @@ public class Startup {
 
 	public static void main(String[] args) {
 		
+		ShorestPathPrime obj = new ShorestPathPrime();
+		System.out.println(obj.shorestPath(1373, 8017));
+		
+		/*
 		GraphAdv<Integer> g = new GraphAdv<Integer> (true);
 		g.addEdge(0, 1, 0);
 		g.addEdge(0, 4, 0);
@@ -16,6 +20,7 @@ public class Startup {
 		CountPathTwoVertex obj = new CountPathTwoVertex(g);
 		int count = obj.countPathTwoVertex(0, 4);
 		System.out.print(count);
+		*/
 		
 		/*
 		GraphAdv<Integer> g = new GraphAdv<Integer> (true);
