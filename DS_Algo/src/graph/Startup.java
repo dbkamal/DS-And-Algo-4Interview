@@ -5,7 +5,7 @@ public class Startup {
 	public static void main(String[] args) {
 		
 		numTheory.FindSmallestBinaryDigit obj = new numTheory.FindSmallestBinaryDigit();
-		System.out.println(obj.findSmallestDigit(17));
+		System.out.println(obj.findSmallestDigit2(199));
 		
 		/*
 		int[][] matrix = {{ 3 , 3 , 1 , 0 },

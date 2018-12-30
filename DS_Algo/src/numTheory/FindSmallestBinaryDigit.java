@@ -5,7 +5,11 @@ import java.util.*;
  * https://www.careercup.com/question?id=6017875829587968
  */
 public class FindSmallestBinaryDigit {
-	public int findSmallestDigit(int k) {
+	
+	/*
+	 * Time Complexity - O(2^n) where n = 32 or 64 bit computer.
+	 */
+	public int findSmallestDigit (int k) {
 		Set<Integer> numList = new TreeSet<Integer> ();
 		numList.add(0);
 		numList.add(1);
@@ -25,5 +29,33 @@ public class FindSmallestBinaryDigit {
 			numList.addAll(newList);
 		}
 		return -1;
+	}
+	
+	/*
+	 * Another approach: optimized step
+	 */
+	public int findSmallestDigit2 (int k) {
+		
+		LinkedList<Integer> queue = new LinkedList<Integer> ();
+		Vector<Integer> visited = new Vector<Integer> ();
+		
+		queue.add(1);
+		
+		while (queue.size() > 0) {
+			int p = queue.pollFirst();
+			int rem = p % k;
+			
+			if (rem == 0)
+				return p;
+			else {
+				if (!visited.contains(rem)) {
+					visited.add(rem);
+					queue.add(p * 10 + 0);
+					queue.add(p * 10 + 1);
+				}
+			}
+		}
+		
+		return 0;
 	}
 }
