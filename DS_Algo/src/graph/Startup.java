@@ -4,8 +4,17 @@ public class Startup {
 
 	public static void main(String[] args) {
 		
+		int[][] matrix = {{ 3 , 3 , 1 , 0 },
+                			  { 3 , 0 , 3 , 3 },
+                			  { 2 , 3 , 0 , 3 },
+                			  { 0 , 3 , 3 , 3 }};
+		MinMoveMatrix obj = new MinMoveMatrix(matrix);
+		System.out.println(obj.minMove());
+		
+		/*
 		ShorestPathPrime obj = new ShorestPathPrime();
 		System.out.println(obj.shorestPath(1373, 8017));
+		*/
 		
 		/*
 		GraphAdv<Integer> g = new GraphAdv<Integer> (true);
