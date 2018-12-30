@@ -4,12 +4,17 @@ public class Startup {
 
 	public static void main(String[] args) {
 		
+		numTheory.FindSmallestBinaryDigit obj = new numTheory.FindSmallestBinaryDigit();
+		System.out.println(obj.findSmallestDigit(17));
+		
+		/*
 		int[][] matrix = {{ 3 , 3 , 1 , 0 },
                 			  { 3 , 0 , 3 , 3 },
                 			  { 2 , 3 , 0 , 3 },
                 			  { 0 , 3 , 3 , 3 }};
 		MinMoveMatrix obj = new MinMoveMatrix(matrix);
 		System.out.println(obj.minMove());
+		*/
 		
 		/*
 		ShorestPathPrime obj = new ShorestPathPrime();
