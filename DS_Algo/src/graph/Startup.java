@@ -4,8 +4,29 @@ public class Startup {
 
 	public static void main(String[] args) {
 		
+		String[] words = {"baa","abcd","abca","cab","cad"};
+		OrderCharacter obj = new OrderCharacter(words);
+		obj.orderCharacter();
+		
+		/*
+		int[][] matrix = {{0,0,1,1,0},
+						  {1,0,1,1,0},
+						  {0,1,0,0,0},
+						  {0,0,0,1,1}};
+		
+		FindLargestRegion obj = new FindLargestRegion(matrix);
+		System.out.println(obj.findLargest());
+		*/
+		
+		/*
+		SteppingNumber obj = new SteppingNumber();
+		obj.steppingNumber(10, 333);
+		*/
+		
+		/*
 		numTheory.FindSmallestBinaryDigit obj = new numTheory.FindSmallestBinaryDigit();
 		System.out.println(obj.findSmallestDigit2(199));
+		*/
 		
 		/*
 		int[][] matrix = {{ 3 , 3 , 1 , 0 },
