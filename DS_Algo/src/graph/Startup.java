@@ -3,10 +3,21 @@ package graph;
 public class Startup {
 
 	public static void main(String[] args) {
+		/*
+		int[][] matrix = {{1,1,0,0,0},
+				          {0,1,0,0,1},
+				          {1,0,0,1,1},
+				          {0,0,0,0,0},
+				          {1,0,1,0,1}};
+		FindIslands obj = new FindIslands();
+		System.out.println(obj.findNumIslands(matrix));
+		*/
 		
+		/*
 		String[] words = {"baa","abcd","abca","cab","cad"};
 		OrderCharacter obj = new OrderCharacter(words);
 		obj.orderCharacter();
+		*/
 		
 		/*
 		int[][] matrix = {{0,0,1,1,0},
