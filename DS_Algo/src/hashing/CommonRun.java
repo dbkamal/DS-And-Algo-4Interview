@@ -6,6 +6,22 @@ public class CommonRun {
 
 	public static void main(String[] args) {
 		
+		String[] words = { "may", "student", "students", "dog",
+                "studentssess", "god", "cat", "act",
+                "tab", "bat", "flow", "wolf", "lambs",
+                "amy", "yam", "balms", "looped", 
+                "poodle"};
+		GroupingWords obj = new GroupingWords();
+		obj.groupWords(words);
+		
+		/*
+		int[] arr1 = {1,2,4,4};
+		int[] arr2 = {4,2,4,4};
+		SameArrays obj = new SameArrays();
+		System.out.println(obj.isSameArrays(arr1, arr2));
+		*/
+		
+		/*
 		int[] arr = {1,2,3,1,1};
 		DuplicateChecking obj = new DuplicateChecking();
 		System.out.println(obj.isDuplicate2(arr, 3));
