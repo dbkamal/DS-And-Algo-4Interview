@@ -1,11 +1,33 @@
 package hashing;
 
-import java.util.LinkedList;
+//import java.util.LinkedList;
 
 public class CommonRun {
 
 	public static void main(String[] args) {
 		
+		int[] arr = {1,2,3,1,1};
+		DuplicateChecking obj = new DuplicateChecking();
+		System.out.println(obj.isDuplicate2(arr, 3));
+		/*
+		int[][] matrix = {{-1,1},{0,0},{1,1},{2,2},{3,3},{3,4}};
+		MaxPoint obj = new MaxPoint();
+		int count = obj.maxPointOnLine(matrix);
+		System.out.println(count);
+		*/
+		
+		/*
+		int[] arr = {1,2,4,4};
+		SumInArray obj = new SumInArray();
+		boolean flag = obj.isSumInArray(arr, 7);
+		
+		if(flag)
+			System.out.println("sum found");
+		else
+			System.out.println("sum is not found");
+		*/
+		
+		/*
 		LinkedList<Integer> list1 = new LinkedList<Integer> ();
 		list1.add(10);
 		list1.add(15);
@@ -19,17 +41,18 @@ public class CommonRun {
 		list2.add(10);
 		
 		UnionIntersection obj = new UnionIntersection();
-//		LinkedList<Integer> listInt = obj.intersection(list1, list2);
-//		LinkedList<Integer> listUni = obj.union(list1, list2);
+		LinkedList<Integer> listInt = obj.intersection(list1, list2);
+		LinkedList<Integer> listUni = obj.union(list1, list2);
 		obj.unionAndIntersection(list1, list2);
 		
-//		for (Integer p : listInt)
-//			System.out.println(p);
-//		
-//		System.out.println("*****");
-//		
-//		for (Integer p : listUni)
-//			System.out.println(p);
+		for (Integer p : listInt)
+			System.out.println(p);
+		
+		System.out.println("*****");
+		
+		for (Integer p : listUni)
+			System.out.println(p);
+		*/
 		
 		/*
 		int[] arr1 = {};
