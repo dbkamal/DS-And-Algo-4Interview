@@ -1,11 +1,41 @@
 package hashing;
 
+import java.util.ArrayList;
+
 //import java.util.LinkedList;
 
 public class CommonRun {
 
 	public static void main(String[] args) {
+
+		int[] arr = {0, 0, 1, 1, 0};
+		ArrayList<Integer> list = LongestSubArray0s1s.longSubArray(arr);
+		for(Integer p : list)
+			System.out.println(p);
+		/*
+		int[] arr = {3,2,1,4,5};
+		System.out.println(LongestConSubSeq.longestConSubSeq(arr));
+		*/
 		
+		/*
+		int[] arr = {15, -2, 2, -8, 1, 7, 10, 23};
+		System.out.println(LargestSubarray.subarray(arr));
+		*/
+		
+		/*
+		int[] arr = {3, 1, 4, 4, 5, 2, 6, 1};
+		MostOccurance obj = new MostOccurance();
+		int[] result = obj.mostOccurane(arr, 2);
+		System.out.println(java.util.Arrays.toString(result));
+		*/
+		
+		/*
+		String[] arr = {"geeks", "for", "geeks", "for", "geeks", "aaa"};
+		SecondMostRepeated obj = new SecondMostRepeated();
+		System.out.println(obj.secondMost(arr));
+		*/
+		
+		/*
 		String[] words = { "may", "student", "students", "dog",
                 "studentssess", "god", "cat", "act",
                 "tab", "bat", "flow", "wolf", "lambs",
@@ -13,6 +43,7 @@ public class CommonRun {
                 "poodle"};
 		GroupingWords obj = new GroupingWords();
 		obj.groupWords(words);
+		*/
 		
 		/*
 		int[] arr1 = {1,2,4,4};
