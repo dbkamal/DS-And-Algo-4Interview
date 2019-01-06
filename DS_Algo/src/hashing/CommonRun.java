@@ -7,11 +7,19 @@ import java.util.ArrayList;
 public class CommonRun {
 
 	public static void main(String[] args) {
+		
+		int[] arr = {0, -1, 2, -3, 1};
+		ArrayList<Integer> list = FindTriplet.findTriplet2(arr);
+		for(Integer p : list)
+			System.out.println(p);
 
+		/*
 		int[] arr = {0, 0, 1, 1, 0};
 		ArrayList<Integer> list = LongestSubArray0s1s.longSubArray(arr);
 		for(Integer p : list)
 			System.out.println(p);
+		*/
+		
 		/*
 		int[] arr = {3,2,1,4,5};
 		System.out.println(LongestConSubSeq.longestConSubSeq(arr));
