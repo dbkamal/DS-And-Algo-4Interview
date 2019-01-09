@@ -42,16 +42,22 @@ public class TreeStart {
 	public static void main(String[] args) {
 		
 		Node root = new Node(1);
-		root.left = new Node(2);
-		root.right = new Node(3);
-		root.left.left = new Node(4);
-		root.left.right = new Node(5);
-		root.right.right = new Node(7);
-		root.left.left.left = new Node(8);
-		root.left.right.right = new Node(11);
-		root.right.right.left = new Node(10);
+		root.left = new Node(3);
+		root.right = new Node(2);
+		root.right.left = new Node(5);
+		root.right.right = new Node(4);
 		
-		ReverseLevelOrder.reverseLevelOrder(root);
+		Node root1 = new Node(1);
+		root1.left = new Node(2);
+		root1.right = new Node(3);
+		root1.left.left = new Node(4);
+		root1.left.right = new Node(5);
+		
+		System.out.println(MirrorTree.isMirrorTree(root, root1));
+		
+//		BoundaryTraversal.boundaryTraversal(root);
+		
+//		ReverseLevelOrder.reverseLevelOrder(root);
 		
 //		postOrder(root);
 		
