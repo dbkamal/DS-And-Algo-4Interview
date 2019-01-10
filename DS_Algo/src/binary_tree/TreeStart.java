@@ -41,19 +41,38 @@ public class TreeStart {
 	
 	public static void main(String[] args) {
 		
-		Node root = new Node(1);
-		root.left = new Node(3);
-		root.right = new Node(2);
-		root.right.left = new Node(5);
-		root.right.right = new Node(4);
+		Node root = new Node(20);
+		root.right = new Node(22);
+		root.left = new Node(8);
+		root.left.left = new Node(4);
+		root.left.right = new Node(12);
+		root.left.right.left = new Node(10);
+		root.left.right.right = new Node(14);
 		
-		Node root1 = new Node(1);
-		root1.left = new Node(2);
-		root1.right = new Node(3);
-		root1.left.left = new Node(4);
-		root1.left.right = new Node(5);
+		System.out.println(OrderStatBST.inOrderStat(root, 5));
 		
-		System.out.println(MirrorTree.isMirrorTree(root, root1));
+//		Node root1 = new Node(5);
+//		root1.right = new Node(12);
+//		root1.right.left = new Node(11);
+//		root1.right.right = new Node(13);
+//		root1.left = new Node(3);
+//		root1.left.left = new Node(0);
+//		
+//		MergeTwoBST.merge(root, root1);
+		
+		
+//		inOrder(root);
+//		System.out.println(BST.search(root, 58).key);
+//		BST.insert(root, 59);
+//		inOrder(root);
+//		System.out.println("");
+//		BST.delete(root, 50);
+//		inOrder(root);
+		
+		
+//		FindLCA.findLCA(root, 4, 5);
+		
+//		System.out.println(MirrorTree.isMirrorTree(root, root1));
 		
 //		BoundaryTraversal.boundaryTraversal(root);
 		
