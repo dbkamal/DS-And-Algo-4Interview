@@ -23,9 +23,12 @@ public class Test {
 //		for (int i=0;i<arr.length;i++)
 //			arr[i] = (arr[i] == 0 ? -1 : 1);
 //		System.out.println(java.util.Arrays.toString(arr));
-		Integer[] p = {1,2,3};
-		for(Integer q : p)
-			System.out.println(q);
+//		Integer[] p = {1,2,3};
+//		for(Integer q : p)
+//			System.out.println(q);
+		String s = "G";
+		char c = s.charAt(0);
+		System.out.println(c + (1 << 5));
 	}
 }
 
