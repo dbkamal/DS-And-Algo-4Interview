@@ -26,9 +26,14 @@ public class Test {
 //		Integer[] p = {1,2,3};
 //		for(Integer q : p)
 //			System.out.println(q);
-		String s = "G";
-		char c = s.charAt(0);
-		System.out.println(c + (1 << 5));
+//		String s = "G";
+//		char c = s.charAt(0);
+//		System.out.println(c + (1 << 5));
+		String str = "apple";
+		str += '\0';
+		
+		System.out.println(str.length());
+		
 	}
 }
 
