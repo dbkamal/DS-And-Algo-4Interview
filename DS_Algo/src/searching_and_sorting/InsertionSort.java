@@ -23,4 +23,23 @@ public class InsertionSort {
 
 		System.out.println(Arrays.toString(arr));
 	}
+	
+	/** Sort the collection in reverse order i.e non-decreasing order */
+	public static void decreasingSort(int[] arr) {
+		if (arr == null)
+			return;
+
+		for(int i = 1; i < arr.length; i++) {
+			int key = arr[i];
+			int j = i - 1;
+
+			while (j >= 0 && arr[j] < key) {
+				arr[j + 1] = arr[j];
+				j--;
+				arr[j + 1] = key;
+			}
+		}
+
+		System.out.println(Arrays.toString(arr));
+	}
 }
